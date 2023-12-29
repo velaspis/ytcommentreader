@@ -1,0 +1,115 @@
+.progress {
+  margin: 40px auto 25px auto;
+}
+
+#result-container {
+  margin: 20px 0;
+  z-index: 1;
+}
+
+.well {
+  position: relative;
+  margin: 20px auto;
+  padding: 10px;
+  max-width: 800px;
+  background: #fcfcfc;
+}
+
+.icheckbox_flat {
+  margin: 5px;
+}
+
+.well-progress {
+  display: none;
+  width: 10%;
+  position: absolute;
+  left: 45%;
+  top: 20%;
+  z-index: 999;
+  font-size: 26pt;
+  background: #666666;
+  color: #FFFFFF;
+  opacity: 0.6;
+  text-align: center;
+  display: inline-block;
+}
+
+.video-detail {
+  display: none;
+}
+
+.video-embed {
+  display: none;
+}
+
+.video-title {
+  font-size: 13pt;
+  font-weight: bold;
+  color: #434a54;
+}
+
+.comment-count {
+  font-style: italic;
+}
+
+.video-embed {
+  padding: 12px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.result-panel {
+  border: 1px solid #eeeeee;
+  border-radius: 4px;
+}
+
+.tab-content {
+  padding: 0;
+}
+
+.result-div {
+  width: 100%;
+  overflow: scroll;
+  height: 500px;
+  min-height: 300px;
+  resize: vertical;
+}
+
+a#save-dropdown {
+  background: #DA4453;
+  color: #FFFFFF;
+}
+  a#save-dropdown:hover {
+    background: #D86E79;
+  }
+
+.csv-table {
+  width: 100%;
+}
+
+.csv-table th {
+  border: 1px solid #dddddd;
+  vertical-align: top;
+  padding: 0.3em;
+  font-size: 1.2em;
+  background: #efefef;
+}
+
+.csv-table td{
+  border: 1px solid #dddddd;
+  vertical-align: top;
+  padding: 0.2em;
+}
+
+.csv-table tbody tr:nth-child(even) {
+  background: #F5F5F5;
+}
+
+.csv-table .date-cell, .csv-table .replies\.date-cell {
+  max-width:100%;
+  white-space: nowrap;
+}
+
+.csv-table .commentText-cell, .csv-table .replies\.commentText-cell {
+  min-width: 50em;
+}

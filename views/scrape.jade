@@ -1,0 +1,99 @@
+extends layout
+
+block content
+  .card
+    link(rel='stylesheet', href='/static/css/scrape.css')
+    link(rel='stylesheet', href='/static/libs/json.human.css')
+    script(type='text/javascript', src="/static/libs/json.human.js")
+    script(type='text/javascript', src='/static/libs/papaparse.min.js')
+    script(type='text/javascript', src='/static/libs/download.js')
+    script(type='text/javascript', src='/static/js/scrape.js')
+    input#videoID(type='text', style='display: none;', value=videoID)
+
+    #scraping-container
+      h3 Scraping Comments
+      p Having problems?
+        a(href='/report?youtubeUrl=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D#{videoID}', target='_blank')  Report an issue.
+      .progress.progress-striped.active
+        .progress-bar.progress-bar-danger(role='progressbar', aria-valuenow='100', aria-valuemin='0', aria-valuemax='100', style='width: 100%')
+
+      .well.video-detail
+        #video-detail
+          a(target="_blank").video-title
+          p.comment-count
+          .video-embed
+            .embed-responsive.embed-responsive-16by9
+              iframe.embed-responsive-item(src='', frameborder='0')
+
+      .well
+        ul#detail-list.fa-ul
+
+
+    #result-container.hidden
+      .well
+        .well.well-progress
+          i.fa.fa-circle-o-notch.fa-spin
+        h4 Options
+        #options-row.row
+          .col-xs-6.col-md-4
+            label.checkbox
+              input#commentID(type='checkbox', value='id' checked)
+              |Comment ID
+          .col-xs-6.col-md-4
+            label.checkbox
+              input#username(type='checkbox', value='user' checked)
+              |Username
+          .col-xs-6.col-md-4
+            label.checkbox
+              input#date(type='checkbox', value='date' checked)
+              |Date
+          .col-xs-6.col-md-4
+            label.checkbox
+              input#timestamp(type='checkbox', value='timestamp' checked)
+              |Timestamp
+          .col-xs-6.col-md-4
+            label.checkbox
+              input#commentText(type='checkbox', value='commentText' checked)
+              |Comment Text
+          .col-xs-6.col-md-4
+            label.checkbox
+              input#likes(type='checkbox', value='likes' checked)
+              |Likes
+          .col-xs-6.col-md-4
+            label.checkbox
+              input#replies(type='checkbox', value='replies' checked)
+              |Replies
+
+      .tabbable.clearfix.result-panel
+        ul#result-tabs.nav.nav-tabs
+          li.active
+            a(href='#json-tab', data-toggle='tab') JSON
+          li
+            a(href='#csv-tab', data-toggle='tab') CSV
+          li.pull-right
+            a#save-dropdown.dropdown-toggle.fa.fa-download(href='#', data-toggle='dropdown', aria-controls='save-dropdown-contents', aria-expanded='false') &nbsp;Download
+            ul#save-dropdown-contents.dropdown-menu(role='menu', aria-labelledby='save-dropdown')
+              li
+                a#save-json(tabindex='-1', role='tab', aria-controls='dropdown1') Save as JSON
+              li
+                a#save-csv(tabindex='-1', role='tab', aria-controls='dropdown2') Save as CSV
+
+        #result-tabs-content.tab-content
+          #json-tab.tab-pane.fade.active.in
+            #json-result.result-div
+          #csv-tab.tab-pane.fade
+            #csv-result.result-div
+
+
+  #video-error-modal.modal(role='dialog').visible
+    .modal-dialog
+      .modal-content
+        .modal-header
+          h4.modal-title Video Error
+        .modal-body
+          p#error-message
+          p Having problems?
+            a(href='/report?youtubeUrl=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D#{videoID}', target='_blank')  Report an issue.
+        .modal-footer
+          a(href='/')
+            button(type="button" class="btn btn-primary") Try again

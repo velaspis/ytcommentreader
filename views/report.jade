@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/static/css/report.css')
+  .card.report-card.col-md-1
+    h3 Report an issue
+
+    p I do my best to keep the <b>YouTube Comment Scraper</b> up-to-date and working, but sometimes things do break. Since the comments are scraped directly from the web, this app may stop working whenever YouTube makes changes to their website.
+    p If you find that scraping comments from YouTube fails <b>continuously</b>, please let me know using the form below. Or submit an Issue/Pull Request on
+      a(href='https://github.com/philbot9/youtube-comment-scraper', target='_blank')  GitHub.
+
+    .row
+      if locals.success
+        .alert.alert-success
+          <center>#{success}</center>
+      else if locals.error
+        .form-container.col-md-6
+          .alert.alert-danger
+            strong Error:
+            |  #{error}
+          include ./report-form.jade
+      else
+        .form-container.col-md-6
+          include ./report-form.jade

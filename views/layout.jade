@@ -1,0 +1,77 @@
+doctype html
+html
+  head
+    title YouTube Comment Scraper
+    meta(name='HandheldFriendly', content='True')
+    meta(name='MobileOptimized', content='320')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Download (scrape) all comments from a given YouTube video.">
+    <meta name="keywords" content="YouTube,Comment,Comments,Scrape,Download,Research,Analysis,Digital Humanities">
+    <meta name="author" content="Philip Klostermann">
+
+    link(rel='icon' type='image/ico' href='/static/favicon.ico')
+    link(rel='stylesheet', href='/static/bootflat/css/site.min.css')
+    link(rel='stylesheet', href='/static/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/static/css/style.css')
+
+    script(src='/static/libs/jquery.min.js')
+    script(src='/static/bootflat/js/site.min.js')
+    script(src='/static/js/script.js')
+  body
+    nav.navbar.navbar-default.navbar-static-top
+      .container
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a(href='/')
+            i.fa.fa-comments-o.site-logo
+            span.site-title
+              span.title-large Y
+              span ou
+              span.title-large T
+              span ube Comment Scraper
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right.text-center
+            li
+              a(href='/')
+                i.fa.fa-home
+                br
+                .nav-text Home
+            li
+              a(href='/stats')
+                i.fa.fa-table
+                br
+                .nav-text Stats
+            li
+              a(target="_blank" href='https://github.com/philbot9/youtube-comment-scraper')
+                i.fa.fa-github
+                br
+                .nav-text Source
+            li
+              a(target="_blank" href='http://philip.klostermann.ca/')
+                i.fa.fa-user
+                br
+                .nav-text About
+
+
+    .container
+
+      #safari-warning.alert.alert-warning.alert-dismissable(style="display: none;")
+        button(type="button" class="close" data-dismiss="alert" aria-hidden="true") ×
+        strong Warning for Safari users&nbsp;
+        p The Safari web browser does not support downloading the results of a scrape. Please use a real browser &#40;e.g.&nbsp;
+          strong
+            a(target='blank' href="https://www.mozilla.org/en-US/firefox/products/") Firefox
+          &nbsp;or&nbsp;
+          strong
+            a(target='blank' href="https://www.google.com/chrome/") Chrome
+          &#41;.
+
+      block content
